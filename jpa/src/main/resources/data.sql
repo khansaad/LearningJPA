@@ -1,18 +1,16 @@
-create table person
-(
-	id integer not null,
-	name varchar(255) not null,
-	location varchar(255),
-	birth_date timestamp,
-	primary key(id)
-);
+insert into course(id,name, created_date, last_updated_date) values(100,'first course',sysdate(),sysdate());
+insert into course(id,name, created_date, last_updated_date) values(101,'second course',sysdate(),sysdate());
+insert into course(id,name, created_date, last_updated_date) values(102,'third course',sysdate(),sysdate());
 
-insert into person
-(ID, NAME,LOCATION,BIRTH_DATE)
-VALUES(100,'SAAD','LUCKNOW',SYSDATE());
-insert into person
-(ID, NAME,LOCATION,BIRTH_DATE)
-VALUES(101,'DAAS','KANPUR',SYSDATE());
-insert into person
-(ID, NAME,LOCATION,BIRTH_DATE)
-VALUES(102,'SDAA','NOWLUCK',SYSDATE());
+--(ID, NAME,LOCATION,BIRTH_DATE)
+--VALUES(100,'SAAD'
+
+--insert into person
+--(ID, NAME,LOCATION,BIRTH_DATE)
+--VALUES(100,'SAAD','LUCKNOW',SYSDATE());
+--insert into person
+--(ID, NAME,LOCATION,BIRTH_DATE)
+--VALUES(101,'DAAS','KANPUR',SYSDATE());
+--insert into person
+--(ID, NAME,LOCATION,BIRTH_DATE)
+--VALUES(102,'SDAA','NOWLUCK',SYSDATE());

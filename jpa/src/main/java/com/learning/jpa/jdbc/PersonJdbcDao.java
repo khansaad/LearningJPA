@@ -25,14 +25,19 @@ public class PersonJdbcDao {
 
 		@Override
 		public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
-			// TODO Auto-generated method stub
-			return null;
+			Person person = new Person();
+			person.setId(rs.getInt("id"));
+			person.setName(rs.getString("name"));
+			person.setLocation(rs.getString("location"));
+			person.setBirth_date(rs.getTimestamp("birth_date"));
+			
+			return person;
 		}
 		
 	}
 	//select * from person
 	public List<Person> findAll(){
-		return jdbcTemplate.query("select * from person", new BeanPropertyRowMapper<Person>(Person.class));
+		return jdbcTemplate.query("select * from person", new PersonRowMapper());
 	}
 	
 	public Person findById(int id){
