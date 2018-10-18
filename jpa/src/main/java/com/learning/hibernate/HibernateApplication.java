@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.learning.hibernate.entity.Course;
 import com.learning.hibernate.repository.CourseRepo;
+import com.learning.hibernate.repository.StudentRepo;
 
 
 @SpringBootApplication
@@ -16,14 +17,19 @@ public class HibernateApplication implements CommandLineRunner{
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
-	private CourseRepo courseRepo;
+	private StudentRepo studentRepo;
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(HibernateApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		courseRepo.playwithEM();
+		
+		studentRepo.saveStudentWithPassport();
+		
+//		courseRepo.playwithEM();
 		
 //		Course course = courseRepo.findById(100L);
 //		
