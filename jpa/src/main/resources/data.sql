@@ -26,20 +26,11 @@ values(502,'4','good',101);
 insert into review(id,rating, description,course_id)
 values(503,'3','Average',102);
 
-
-
-
-
-
---(ID, NAME,LOCATION,BIRTH_DATE)
---VALUES(100,'SAAD'
-
---insert into person
---(ID, NAME,LOCATION,BIRTH_DATE)
---VALUES(100,'SAAD','LUCKNOW',SYSDATE());
---insert into person
---(ID, NAME,LOCATION,BIRTH_DATE)
---VALUES(101,'DAAS','KANPUR',SYSDATE());
---insert into person
---(ID, NAME,LOCATION,BIRTH_DATE)
---VALUES(102,'SDAA','NOWLUCK',SYSDATE());
+insert into student_course( student_id,course_id)
+values(201,100);
+insert into student_course( student_id,course_id)
+values(202,101);
+insert into student_course( student_id,course_id)
+values(203,102);
+insert into student_course( student_id,course_id)
+values(201,101);

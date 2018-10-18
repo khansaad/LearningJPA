@@ -57,4 +57,11 @@ public class StudentRepoTest {
 		logger.info("passport -> {}", passport);
 		logger.info("student -> {}",passport.getStudent());
 	}
+	@Test
+	@Transactional
+	public void retrieveStudentAndCourses() {
+		Student student = em.find(Student.class, 201L);
+		logger.info("student -> {}", student);
+		logger.info("courses -> {}", student.getCourses());
+	}
 }

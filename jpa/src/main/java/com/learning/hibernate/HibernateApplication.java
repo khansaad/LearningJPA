@@ -21,7 +21,7 @@ public class HibernateApplication implements CommandLineRunner{
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
-	private CourseRepo courseRepo;
+	private StudentRepo studentRepo;
 	
 	
 	public static void main(String[] args) {
@@ -31,12 +31,12 @@ public class HibernateApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		
-		List<Review> reviews = new ArrayList<>();
-		reviews.add(new Review("5","Great stuff,thanks"));
-		reviews.add(new Review("4","nice"));
-		
-		courseRepo.addReviewsForCourse(100L, reviews);;
+		studentRepo.insertStudentAndCourse();
+//		List<Review> reviews = new ArrayList<>();
+//		reviews.add(new Review("5","Great stuff,thanks"));
+//		reviews.add(new Review("4","nice"));
+//		
+//		courseRepo.addReviewsForCourse(100L, reviews);;
 		
 		
 		//courseRepo.addHardCodedReviewsForCourse();

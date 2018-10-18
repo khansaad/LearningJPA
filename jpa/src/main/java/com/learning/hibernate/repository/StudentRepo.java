@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.learning.hibernate.entity.Course;
 import com.learning.hibernate.entity.Passport;
 import com.learning.hibernate.entity.Student;
 
@@ -65,6 +66,18 @@ public class StudentRepo {
 		// Database Operation 4 - update student
 		student.setName("saad - updated");
 		//Persistence Context(student++, passport++)
+	}
+	public void insertStudentAndCourse() {
+		
+		Student student = new Student("Jack");
+		Course course = new Course("fourth course");
+		em.persist(student);
+		em.persist(course);
+		
+		student.addCourse(course);
+		course.addStudent(student);
+		em.persist(student);
+		em.persist(course);
 	}
 	
 }
