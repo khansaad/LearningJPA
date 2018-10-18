@@ -1,5 +1,7 @@
 package com.learning.hibernate.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.slf4j.Logger;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.learning.hibernate.entity.Course;
+import com.learning.hibernate.entity.Review;
 
 @Repository
 @Transactional
@@ -68,5 +71,44 @@ public class CourseRepo {
 		
 		em.refresh(course1);
 		em.flush();		*/
+	}
+
+	public void addHardCodedReviewsForCourse() {
+		
+		// get the course 100
+		Course course = findById(100L);
+		logger.info("course.getReviews() -> {}", course.getReviews());
+		
+		// add reviews to it
+		Review review1 = new Review("5","Great stuff");
+		Review review2 = new Review("5","Great stuff");
+		
+		//setting the relationship
+		course.addReview(review1);
+		review1.setCourse(course);
+		
+		course.addReview(review2);
+		review2.setCourse(course);
+		
+		//save it to database
+		em.persist(review1);
+		em.persist(review2);
+		
+	}
+	public void addReviewsForCourse(Long courseId, List<Review> reviews) {
+				
+		// get the course from courseID
+		Course course = findById(courseId);
+		logger.info("course.getReviews() -> {}", course.getReviews());
+		
+		for(Review review:reviews) {
+			
+			//setting the relationship
+			course.addReview(review);
+			review.setCourse(course);
+			em.persist(review);
+			
+		}
+		
 	}
 }

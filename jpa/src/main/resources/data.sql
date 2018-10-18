@@ -19,12 +19,12 @@ values(202,'daas',402);
 insert into student(id,name,passport_id)
 values(203,'dasa',403);
 
-insert into review(id,rating, description)
-values(501,'5','great');
-insert into review(id,rating, description)
-values(502,'4','good');
-insert into review(id,rating, description)
-values(503,'3','Average');
+insert into review(id,rating, description,course_id)
+values(501,'5','great',100);
+insert into review(id,rating, description,course_id)
+values(502,'4','good',101);
+insert into review(id,rating, description,course_id)
+values(503,'3','Average',102);
 
 
 

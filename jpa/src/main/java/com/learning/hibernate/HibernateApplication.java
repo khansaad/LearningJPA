@@ -1,5 +1,8 @@
 package com.learning.hibernate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.learning.hibernate.entity.Course;
+import com.learning.hibernate.entity.Review;
 import com.learning.hibernate.repository.CourseRepo;
 import com.learning.hibernate.repository.StudentRepo;
 
@@ -17,7 +21,7 @@ public class HibernateApplication implements CommandLineRunner{
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
-	private StudentRepo studentRepo;
+	private CourseRepo courseRepo;
 	
 	
 	public static void main(String[] args) {
@@ -27,7 +31,16 @@ public class HibernateApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		studentRepo.saveStudentWithPassport();
+		
+		List<Review> reviews = new ArrayList<>();
+		reviews.add(new Review("5","Great stuff,thanks"));
+		reviews.add(new Review("4","nice"));
+		
+		courseRepo.addReviewsForCourse(100L, reviews);;
+		
+		
+		//courseRepo.addHardCodedReviewsForCourse();
+//		studentRepo.saveStudentWithPassport();
 		
 //		courseRepo.playwithEM();
 		

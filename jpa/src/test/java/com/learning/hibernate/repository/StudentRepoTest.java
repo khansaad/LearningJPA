@@ -27,10 +27,18 @@ public class StudentRepoTest {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	StudentRepo stuentRepo;
+	StudentRepo studentRepo;
 	
 	@Autowired
 	EntityManager em;
+	
+//	@Test
+//	public void someTest() {
+//		
+//		studentRepo.someOperationToUnderstandPersistenceContext();
+//	}
+
+	
 	
 	@Test
 	@Transactional
@@ -41,4 +49,12 @@ public class StudentRepoTest {
 		logger.info("passport -> {}",student.getPassport());
 	}
 	
+	@Test
+	@Transactional
+	public void retrievePassportAndAssociatedStudent() {
+		
+		Passport passport = em.find(Passport.class, 401L);
+		logger.info("passport -> {}", passport);
+		logger.info("student -> {}",passport.getStudent());
+	}
 }
